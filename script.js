@@ -8,11 +8,14 @@ async function encurtar() {
     body: JSON.stringify({ url })
   });
 
-  if (response.ok) {
+if (response.ok) {
     const data = await response.json();
-        const encurtada = `https://url-shortener-ysr1.onrender.com/api/urls/${data.id}`;
-        document.getElementById("resultado").innerHTML = `
-     URL encurtada: <a href="${encurtada}" target="_blank">${encurtada}</a>
+    const encurtada = `https://url-shortener-ysr1.onrender.com/${data.id}`;
+    const visivel = encurtada.replace("https://", "");
+
+    document.getElementById("resultado").innerHTML = `
+        <p>URL encurtada: <a href="${encurtada}" target="_blank">${visivel}</a></p>
+        <button onclick="navigator.clipboard.writeText('${encurtada}')">Copiar link</button>
     `;
 
   } else {
