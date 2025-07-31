@@ -14,7 +14,8 @@ if (response.ok) {
     const visivel = encurtada.replace("https://", "");
 
     document.getElementById("resultado").innerHTML = `
-        <p>URL encurtada: <a href="${encurtada}" target="_blank">${visivel}</a></p>
+        <h2>URL Encurtada</h2><br>
+        <p><a href="${encurtada}" target="_blank">${visivel}</a></p>
         <button onclick="navigator.clipboard.writeText('${encurtada}')">Copiar link</button>
     `;
 
